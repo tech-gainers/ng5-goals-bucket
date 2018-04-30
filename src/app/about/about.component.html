@@ -2,3 +2,9 @@
   Go. Enjoy it.
   <a href="" (click)="sendMeHome()">Click to go to <strong>HOME</strong></a>
 </p>
+
+<ul>
+  <li *ngFor='let goal of goals'>
+    {{ goal }}
+  </li>
+</ul>

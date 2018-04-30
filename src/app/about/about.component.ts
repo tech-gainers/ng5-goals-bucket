@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-about',
@@ -9,15 +10,18 @@ import {Router} from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
+  goals:any;
+  
   /**prevously it was blank constructor. After activating route
    * we have added code.
    * argument is an instance of activatedroute
    */
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { 
     this.route.params.subscribe(res => console.log(res.id));
   }
 
   ngOnInit() {
+    this._data.goal.subscribe(res => this.goals=res);
   }
 
   sendMeHome(){
